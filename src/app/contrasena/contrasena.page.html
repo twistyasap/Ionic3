@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Recuperar Contraseña</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card class="minimal-card">
+    <ion-card-header>
+      <ion-card-title>Recupera tu Contraseña</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <img src="assets/img/gohan.gif" alt="Logo" class="logo-image">
+      <form (ngSubmit)="onSubmit()" #emailForm="ngForm">
+        <ion-item class="minimal-item">
+          <ion-label position="floating">Correo Electrónico</ion-label>
+          <ion-input 
+            type="email" 
+            [(ngModel)]="emailData.email" 
+            name="email" 
+            required
+          ></ion-input>
+        </ion-item>
+
+
+        <ion-button expand="full" shape="round" class="submit-button" (click)="onSubmit()">Enviar</ion-button>
+
+      </form>
+
+      <a [routerLink]="['/home']">¿Regresar al inicio?</a>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+

@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Error</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="error-page">
+  <div class="error-container">
+    <h1 class="error-title">Error 404!</h1>
+    <h2 class="error-message">"Oops! Parece que algo salió mal."</h2>
+    <p class="error-message">"Página no encontrada. Intenta nuevamente o vuelve al inicio."</p>
+    
+    <div class="image-container">
+      <img src="/assets/img/vegeta.gif" alt="Logo">
+    </div>
+
+    <div class="custom-buttons">
+      <!-- Botón que redirige a la página de inicio de sesión (home) -->
+      <ion-button class="custom-button" shape="round" [routerLink]="['/home']">Volver</ion-button>
+    </div>
+  </div>
+</ion-content>

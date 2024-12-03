@@ -1,0 +1,59 @@
+<ion-header [translucent]="true">
+  <!-- Encabezado transparente -->
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+  </ion-header>
+  
+  <ion-card>
+    <img src="/assets/img/picolo.gif" alt="Logo" />
+    <ion-card-header>
+      <ion-card-title>Registrarse</ion-card-title>
+      <ion-card-subtitle>Verificación de asistencia</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      Regístrate para acceder a la aplicación.
+    </ion-card-content>
+  </ion-card>
+
+  <ion-content padding>
+    <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
+      <ion-item>
+        <ion-label position="floating">Correo Electrónico</ion-label>
+        <ion-input type="email" [(ngModel)]="registerData.email" name="email" required #email="ngModel"></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="email.invalid && (email.dirty || email.touched)">
+        <p>El correo electrónico es requerido</p>
+      </ion-text>
+      <ion-text color="danger" *ngIf="email.invalid && email.touched && email.errors?.['email']">
+        <p>Ingresar correo válido</p>
+      </ion-text>
+      
+      <ion-item>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input type="text" [(ngModel)]="registerData.name" name="name" required #name="ngModel"></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="name.invalid && (name.dirty || name.touched)">
+        <p>El nombre es requerido</p>
+      </ion-text>
+
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input [type]="showPassword ? 'text' : 'password'" [(ngModel)]="registerData.password" name="password" required #password="ngModel"></ion-input>
+        <ion-button slot="end" (click)="showPassword = !showPassword" fill="clear" class="eye-button">
+          <ion-icon [name]="showPassword ? 'eye-off' : 'eye'" class="eye-icon"></ion-icon>
+        </ion-button>
+      </ion-item>
+      <ion-text color="danger" *ngIf="password.invalid && (password.dirty || password.touched)">
+        <p>La contraseña es requerida</p>
+      </ion-text>
+      
+      <div class="button-container">
+        <ion-button size="default" type="submit" [disabled]="!registerForm.form.valid">Registrarse</ion-button>
+        <ion-button size="default" (click)="goToLogin()">Volver</ion-button>
+      </div>
+    </form>
+  </ion-content>
+</ion-content>

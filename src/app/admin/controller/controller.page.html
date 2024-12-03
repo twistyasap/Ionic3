@@ -1,0 +1,28 @@
+<ion-content class="ion-padding ion-text-center">
+  <ion-segment [(ngModel)]="segment" mode="ios">
+    <ion-segment-button value="GenerateQR">
+      <ion-label>GenerateQR</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <div class="segment" *ngIf="segment === 'GenerateQR'">
+    <div class="segment-content">
+      <ion-button (click)="generateQR()">Generar QR</ion-button>
+      <div id="qrImage">
+        <div class="d-flex-center">
+          <div class="d-flex-center qr-wrapper">
+            <img src="assets/img/qrpresente.png" alt="lol">
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <ion-button size="default"  [routerLink]="['/home']">
+    <ion-icon name="arrow-back-outline" slot="start"></ion-icon>
+    Volver
+  </ion-button>
+  
+
+
+</ion-content>

@@ -25,3 +25,55 @@
 #container a {
   text-decoration: none;
 }
+ion-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra horizontalmente el contenido del ion-card */
+}
+
+ion-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra horizontalmente la imagen y el texto */
+  justify-content: center; /* Opcional: centra verticalmente el contenido si hay suficiente altura */
+  text-align: center; /* Opcional: centra el texto si es necesario */
+}
+
+ion-card img {
+  width: 340px; 
+    border-radius: 10px; 
+  
+}
+.button-container {
+  display: flex;
+  justify-content: center;
+  padding: 5px; // Reducido aún más el padding
+  gap: 5px; // Reducido el espacio entre los botones
+  
+  .custom-button {
+    width: auto;
+    margin-top: 10px; // Añadido un margen horizontal mínimo
+  }
+}
+
+ion-button {
+  margin-bottom: 5px;    
+  --background: red;  
+  --color: white;     
+}
+.admin-button {
+  color: white;
+  --background: red;
+  width: 98%; 
+  height: 40px; 
+  border-radius: 10px;
+  display: block; 
+  text-align: center; 
+}
+
+
+
+
+
+
+

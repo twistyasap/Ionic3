@@ -1,0 +1,47 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Menú</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="welcome-container">
+    <h1 class="welcome-title">Bienvenido:</h1>
+    <h1 class="welcome-user">{{ displayName }}</h1>
+  </div>
+
+  <ion-segment [(ngModel)]="segment" mode="ios">
+    <ion-segment-button value="Scan">
+      <ion-label>Escanear QR</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <div class="segment" *ngIf="segment === 'Scan'" style="text-align: center;">
+    <div class="segment-content">
+      <h6>Escanea el QR</h6>
+      <ion-button (click)="startScan()" expand="block" class="submit">
+        Escanear QR
+        <ion-icon slot="end" name="scan-outline"></ion-icon>
+      </ion-button>
+
+      <ion-item *ngIf="scanResult" lines="none" class="result">
+        <ion-label>
+          <p>Resultado Escaneado:</p>
+          <div>{{ scanResult }}</div>
+        </ion-label>
+      </ion-item>
+    </div>
+  </div>
+
+  <div class="content-container">
+    <img #bouncingImage src="assets/img/azulv.gif" class="logo-image">
+  </div>
+</ion-content>
